@@ -19,14 +19,14 @@ const App = () => {
     }, [])
     //Takes a note from the createarea component and pushes it into the DB while maintaining its state
     const noteInit = async (note) => {
-        const res = await axios.post(`/notes/${note.id}`, note)
+        await axios.post(`/notes/${note.id}`, note)
         setNotes(prevVal => {
             return [...prevVal, note]
         });
     }
 
     const noteDel = async (id) => {
-        const res = await axios.delete(`/notes/${id}`)
+        await axios.delete(`/notes/${id}`)
         await setNotes(notes.filter(note => {
             return note.id !== id
         }));
