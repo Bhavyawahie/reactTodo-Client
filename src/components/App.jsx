@@ -11,7 +11,7 @@ const App = () => {
     
     useEffect(() => {
         const getNotefromServer = async () => {
-            const res = await axios.get("/notes");
+            const res = await axios.get("https://keeperbackendserver.herokuapp.com//notes");
             setNotes(res.data);
             console.log(res.data);
         }
@@ -19,14 +19,14 @@ const App = () => {
     }, [])
     //Takes a note from the createarea component and pushes it into the DB while maintaining its state
     const noteInit = async (note) => {
-        await axios.post(`/notes/${note.id}`, note)
+        await axios.post(`https://keeperbackendserver.herokuapp.com//notes/${note.id}`, note)
         setNotes(prevVal => {
             return [...prevVal, note]
         });
     }
 
     const noteDel = async (id) => {
-        await axios.delete(`/notes/${id}`)
+        await axios.delete(`https://keeperbackendserver.herokuapp.com//notes/${id}`)
         await setNotes(notes.filter(note => {
             return note.id !== id
         }));
