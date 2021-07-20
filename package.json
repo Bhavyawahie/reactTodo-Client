@@ -1,0 +1,33 @@
+{
+  "name": "keeper-app-part-1-starting",
+  "version": "1.0.0",
+  "proxy": "https://keeperbackendserver.herokuapp.com/",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.13",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "^1.1.5"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
