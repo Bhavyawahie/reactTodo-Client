@@ -13,7 +13,7 @@ const App = () => {
         const getNotefromServer = async () => {
             const res = await axios.get("https://keeperbackendserver.herokuapp.com/notes");
             setNotes(res.data);
-            console.log(res.data);
+            //console.log(res.data);
         }
         getNotefromServer();
     }, [])
