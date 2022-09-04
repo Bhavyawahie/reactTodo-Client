@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-//import axios from "axios";
+import AddIcon from "@material-ui/icons/Add"
+import { InputBase } from "@material-ui/core";
 
 const CreateArea = (props) => {
+    const [isExpanded, setIsExpanded] = useState(false)
     const [input, setInput] = useState({
         title: "",
         content: ""
@@ -16,21 +18,26 @@ const CreateArea = (props) => {
         });
     }
     const submissionHandler = (event) => {
+        event.preventDefault()
         props.onSubmit(input);
         setInput({
             title: "",
             content: ""
         });
-        event.preventDefault();
-        //console.log("I was clicked and form is supposed to be submitted");
+    }
+
+    const expandTextField = () => {
+        setIsExpanded(true)
     }
 
     return (
         <div>
-            <form>
-                <input name="title" placeholder="Title" onChange={inputChangeHandler} value={input.title} autoComplete="off"/>
-                <textarea name="content" placeholder="Take a note..." onChange={inputChangeHandler}  value={input.content} rows="3"/>
-                <button onClick={submissionHandler} disabled={input.title.length<1}>+</button>
+            <form className="note-form">
+                {isExpanded && (
+                    <InputBase name="title" placeholder="Title" onChange={inputChangeHandler} value={input.title} autoComplete="off" className='note-form-title' multiline/>
+                )}
+                <InputBase name='content' placeholder="Take a note..." onChange={inputChangeHandler} onClick={expandTextField} value={input.content}  className='note-form-body' multiline/>
+                <button onClick={submissionHandler} disabled={input.content.length<1} className='note-form-submission'><AddIcon/></button>
             </form>
         </div>
     )
