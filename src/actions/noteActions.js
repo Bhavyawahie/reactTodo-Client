@@ -13,7 +13,7 @@ export const listNotes = () => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        const res = await axios.get('/api/notes', config)
+        const res = await axios.get('https://2et8t5vm3a.execute-api.ap-south-1.amazonaws.com/dev/api/notes', config)
         dispatch({
             type: NOTE_LIST_SUCCESS,
             payload: res.data
@@ -38,7 +38,7 @@ export const createNote = (input) => async (dispatch, getState) => {
                 Authorization : `Bearer ${userInfo.token}`
             }
         }
-        const res = await axios.post('/api/notes', input, config)
+        const res = await axios.post('https://2et8t5vm3a.execute-api.ap-south-1.amazonaws.com/dev/api/notes', input, config)
         dispatch({
             type: NOTE_CREATE_SUCCESS,
             payload: res.data
@@ -63,7 +63,7 @@ export const deleteNote = (id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        const res = await axios.delete(`/api/notes/${id}`, config)  
+        const res = await axios.delete(`https://2et8t5vm3a.execute-api.ap-south-1.amazonaws.com/dev/api/notes/${id}`, config)  
         dispatch({
             type: NOTE_DELETE_SUCCESS,
             payload: res.data
@@ -88,7 +88,7 @@ export const updateNote = (input, id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        const res = await axios.put(`/api/notes/${id}`, input, config)  
+        const res = await axios.put(`https://2et8t5vm3a.execute-api.ap-south-1.amazonaws.com/dev/api/notes/${id}`, input, config)  
         dispatch({
             type: NOTE_UPDATE_SUCCESS,
             payload: res.data

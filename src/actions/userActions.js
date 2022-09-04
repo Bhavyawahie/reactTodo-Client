@@ -12,7 +12,7 @@ export const login = (email, password) => async (dispatch) => {
                 'Content-type': 'application/json'
             }
         }
-        const res = await axios.post('/api/users/login', { email, password }, config)
+        const res = await axios.post('https://2et8t5vm3a.execute-api.ap-south-1.amazonaws.com/dev/api/users/login', { email, password }, config)
         dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: res.data
@@ -36,7 +36,7 @@ export const register = (name, email, password) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         }
-        const res = await axios.post('/api/users', {name, email, password}, config)
+        const res = await axios.post('https://2et8t5vm3a.execute-api.ap-south-1.amazonaws.com/dev/api/users', {name, email, password}, config)
         dispatch({
             type: USER_REGISTER_SUCCESS,
             payload: res.data
